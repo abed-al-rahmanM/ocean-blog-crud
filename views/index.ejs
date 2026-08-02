@@ -1,0 +1,104 @@
+<%- include("partials/header.ejs", {
+    pageTitle: "Ocean Blog"
+}) %>
+      <!--! section 1 -->
+      <section class="hero">
+        <div class="hero-content">
+          <p class="hero-label">Explore. Write. Share.</p>
+
+          <h1>Dive into your thoughts</h1>
+
+          <p class="hero-description">
+            Create stories, share ideas, and keep your thoughts together in one
+            beautiful place.
+          </p>
+          <a href="#create-post" class="hero-button">Write a post</a>
+        </div>
+      </section>
+
+      <!--! section 2 -->
+      <section id="create-post" class="create-post-section">
+        <div class="section-heading">
+          <p class="section-label">New story</p>
+          <h2>Create a blog post</h2>
+        </div>
+
+        <form action="/posts" method="POST" class="post-form">
+          <div class="form-group">
+            <label for="title">Post title</label>
+
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Enter the post title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="author">Author name</label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="content">Post content</label>
+
+            <textarea
+              id="content"
+              name="content"
+              rows="8"
+              placeholder="Write your story here..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="submit-button">publish Post</button>
+        </form>
+      </section>
+
+      <!--! section 3 -->
+      <section id="posts" class="posts-section">
+        <div class="section-heading">
+          <p class="section-label">Latest stories</p>
+          <h2>Recent posts</h2>
+        </div>
+
+        <% if (posts.length === 0) { %>
+            <div class="empty-posts">
+              <p>Create your first post using the form above.</p>
+            </div>
+        <% } else { %>
+            <div class="posts-grid">
+                <% posts.forEach(post => { %>
+                    <article class="post-card">
+                        <div class="post-meta">
+                            <span>By <%= post.author %></span>
+                            <span><%= post.createdAt %></span>
+                        </div>
+
+                        <h3><%= post.title %></h3>
+                        <p class="post-content"><%= post.content %></p>
+
+                        <div class="post-actions">
+                            <form action="/posts/<%= post.id %>/edit" method="GET">
+                                <button type="submit" class="edit-btn">Edit</button>
+                            </form>
+    
+                            <form action="/posts/<%= post.id %>/delete"method="POST">
+                                <button type="submit" class="delete-btn">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+        <% } %>
+      </section>
+
+<%- include("partials/footer.ejs") %>
+  
