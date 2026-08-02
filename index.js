@@ -3,13 +3,16 @@ import express from "express";
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.set("view engine", "ejs");
+app.set("views", "views");
+
 let posts = [];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", { posts });
+  res.render("index", { posts });
 });
 
 app.post("/posts", (req, res) => {
@@ -33,7 +36,7 @@ app.get("/posts/:id/edit", (req, res) => {
     return res.status(404).send("Post not found");
   }
 
-  res.render("edit.ejs", { post });
+  res.render("edit", { post });
 });
 
 app.post("/posts/:id/edit", (req, res) => {
