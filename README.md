@@ -40,11 +40,11 @@ npm install
 Start the application using the command configured in `package.json`.
 
 ## Screenshots
-<img width="1891" height="858" alt="Screenshot 2026-10-12 165218" src="https://github.com/user-attachments/assets/96e5f3b9-0ddb-4755-bb2e-53506559b77d" />
+<img width="1897" height="727" alt="Screenshot 2026-10-12 165244" src="https://github.com/user-attachments/assets/da8b33db-8ba5-4ec5-9c1b-f46dc29905a2" />
 
 <img width="1897" height="866" alt="Screenshot 2026-10-12 165304" src="https://github.com/user-attachments/assets/465b087d-c926-4a0f-b563-7f67b0252f4a" />
 
-<img width="1897" height="727" alt="Screenshot 2026-10-12 165244" src="https://github.com/user-attachments/assets/da8b33db-8ba5-4ec5-9c1b-f46dc29905a2" />
+<img width="1891" height="858" alt="Screenshot 2026-10-12 165218" src="https://github.com/user-attachments/assets/96e5f3b9-0ddb-4755-bb2e-53506559b77d" />
 
 
 
